@@ -614,15 +614,6 @@ const Structures: CollectionConfig = {
           type: "text",
         },
       ],
-      admin: {
-        components: {
-          RowLabel: ({ data, index }) => {
-            return (
-              data?.title || `Image ${String(index).padStart(2, "0")}`
-            );
-          },
-        },
-      },
     },
   ],
 };
