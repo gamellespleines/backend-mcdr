@@ -1,4 +1,6 @@
-export const buildHoursField = [
+import { Field } from "payload/types";
+
+export const buildHoursField: Field[] = [
   {
     name: "day",
     label: "Jour",

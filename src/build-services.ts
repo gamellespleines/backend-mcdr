@@ -1,6 +1,7 @@
+import { Field } from "payload/types";
 import { buildHoursField } from "./build-hours";
 
-export const buildServicesField = [
+export const buildServicesField: Field[] = [
   {
     name: "available",
     type: "checkbox",
