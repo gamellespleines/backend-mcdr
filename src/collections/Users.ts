@@ -7,31 +7,10 @@ const Users: CollectionConfig = {
     useAsTitle: "email",
   },
   access: {
-    create: ({ req: { user, collection } }) => {
-      if (!user) return false;
-      if (collection.config.slug === "users") {
-        return user.admin;
-      } else {
-        return true;
-      }
-    },
-    read: () => true,
-    update: ({ req: { user, collection } }) => {
-      if (!user) return false;
-      if (collection.config.slug === "users") {
-        return user.admin;
-      } else {
-        return true;
-      }
-    },
-    delete: ({ req: { user, collection } }) => {
-      if (!user) return false;
-      if (collection.config.slug === "users") {
-        return user.admin;
-      } else {
-        return true;
-      }
-    },
+    read: ({ req }) => true,
+    update: ({ req }) => req.user.admin,
+    create: ({ req }) => req.user.admin,
+    delete: ({ req }) => req.user.admin,
   },
   fields: [
     {
@@ -39,6 +18,9 @@ const Users: CollectionConfig = {
       type: "checkbox",
       label: "Is admin ?",
       defaultValue: false,
+      access: {
+        update: ({ req }) => req.user.admin,
+      },
     },
   ],
 };
