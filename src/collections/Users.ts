@@ -1,17 +1,48 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types";
 
 const Users: CollectionConfig = {
-  slug: 'users',
+  slug: "users",
   auth: true,
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "email",
   },
   access: {
+    create: ({ req: { user, collection } }) => {
+      // if (!user) return false;
+      // if (collection.config.slug === "users") {
+      //   return user.admin;
+      // } else {
+      //   return true;
+      // }
+      return true;
+    },
     read: () => true,
+    update: ({ req: { user, collection } }) => {
+      // if (!user) return false;
+      // if (collection.config.slug === "users") {
+      //   return user.admin;
+      // } else {
+      //   return true;
+      // }
+      return true;
+    },
+    delete: ({ req: { user, collection } }) => {
+      // if (!user) return false;
+      // if (collection.config.slug === "users") {
+      //   return user.admin;
+      // } else {
+      //   return true;
+      // }
+      return true;
+    },
   },
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: "admin",
+      type: "checkbox",
+      label: "Is admin ?",
+      defaultValue: false,
+    },
   ],
 };
 
