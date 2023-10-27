@@ -12,9 +12,18 @@ export const buildServicesField: Field[] = [
     type: "textarea",
   },
   {
-    name: "openingHours",
-    type: "array",
-    maxRows: 7,
-    fields: buildHoursField,
+    label: "Jours d'ouverture du service",
+    type: "collapsible",
+    admin: {
+      initCollapsed: true,
+    },
+    fields: [
+      {
+        label: "Heure d'ouverture",
+        name: "opening_hours",
+        type: "group",
+        fields: buildHoursField,
+      },
+    ],
   },
 ];

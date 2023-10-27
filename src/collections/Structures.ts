@@ -56,11 +56,19 @@ const Structures: CollectionConfig = {
       ],
     },
     {
-      name: "opening_days",
       label: "Jours d'ouverture",
-      type: "array",
-      maxRows: 7,
-      fields: buildHoursField,
+      type: "collapsible",
+      admin: {
+        initCollapsed: true,
+      },
+      fields: [
+        {
+          label: "Définissez les créneaux d'ouverture",
+          name: "opening_days",
+          type: "group",
+          fields: buildHoursField,
+        },
+      ],
     },
     {
       name: "description",
@@ -123,14 +131,6 @@ const Structures: CollectionConfig = {
       type: "number",
     },
     {
-      name: "period_date_start",
-      type: "date",
-    },
-    {
-      name: "period_date_end",
-      type: "date",
-    },
-    {
       name: "people_access_conditions",
       type: "group",
       label: "Conditions d'accueil des personnes",
@@ -142,55 +142,64 @@ const Structures: CollectionConfig = {
           hasMany: true,
           options: [
             {
-              label: "adapted_when_psychological_problems",
+              label:
+                "Adapté au personnes atteintes de problèmes psychologiques",
               value: "adapted_when_psychological_problems",
             },
             { label: "on_application", value: "on_application" },
-            { label: "on_means_tested", value: "on_means_tested" },
             {
-              label: "by_appointment_only",
+              label: "Accueil sous conditions de ressources",
+              value: "on_means_tested",
+            },
+            {
+              label: "Accueil sur rendez-vous requis",
               value: "by_appointment_only",
             },
-            { label: "free_access", value: "free_access" },
             {
-              label: "participation_requested_for_hosting",
+              label: "Accès gratuit ou avec contribution libre",
+              value: "free_access",
+            },
+            {
+              label: "Participation requise aux frais d'hébergement",
               value: "participation_requested_for_hosting",
             },
             {
-              label: "participation_requested_for_care",
+              label: "Participation requise aux frais de soins",
               value: "participation_requested_for_care",
             },
             {
-              label: "presence_of_children",
+              label: "Présence d'enfants possible dans la structure",
               value: "presence_of_children",
             },
             {
-              label: "unaccompanied_minors_accepted",
+              label: "Mineurs non accompagnés acceptés",
               value: "unaccompanied_minors_accepted",
             },
-            { label: "couples_accepted", value: "couples_accepted" },
+            { label: "Couples acceptés", value: "couples_accepted" },
             {
-              label: "adapted_for_reduced_mobility",
+              label: "Adapté aux personnes à mobilité réduite",
               value: "adapted_for_reduced_mobility",
             },
             {
-              label: "adapted_when_illnesses_and_infections",
+              label:
+                "Centre adapté aux personnes en situation de maladie / infections graves et invalidantes",
               value: "adapted_when_illnesses_and_infections",
             },
             {
-              label: "identity_document_mandatory",
+              label: "Pièce d'identité obligatoire",
               value: "identity_document_mandatory",
             },
             {
-              label: "proof_of_income_mandatory",
+              label: "Preuve de revenu obligatoire",
               value: "proof_of_income_mandatory",
             },
           ],
         },
         {
           name: "referral_needed",
-          label: "Orientation préalable",
+          label: "Accueil sur orientation obligatoire",
           type: "select",
+          hasMany: true,
           options: [
             { label: "Pas d'orientation préalable", value: "no" },
             { label: "Sur orientation du 115", value: "115" },
@@ -211,21 +220,21 @@ const Structures: CollectionConfig = {
         },
         {
           name: "additional_information",
-          label: "Informations complémentaires",
+          label: "Autres conditions d'accès spécifiques",
           type: "textarea",
         },
         {
           name: "max_pets_number_per_person",
-          label: "Nombre maximum d'animaux par personne",
+          label: "Nombre maximum d'animaux acceptés par personne",
           type: "number",
         },
         {
-          label: "Age minimum",
+          label: "Age minimum requis pour accéder à la structure",
           name: "age_restriction_min",
           type: "number",
         },
         {
-          label: "Age maximum",
+          label: "Age maximum autorisé pour accéder à la structure",
           name: "age_restriction_max",
           type: "number",
         },
@@ -234,7 +243,7 @@ const Structures: CollectionConfig = {
     {
       name: "pets_access_conditions",
       type: "group",
-      label: "Conditions d'accueil des animaux",
+      label: "Conditions d'accès des animaux",
       fields: [
         {
           name: "conditions",
@@ -243,57 +252,65 @@ const Structures: CollectionConfig = {
           hasMany: true,
           options: [
             {
-              label: "sterilized_mandatory",
+              label: "L'animal doit être stérilisé",
               value: "sterilized_mandatory",
             },
             {
-              label: "access_to_common_areas_allowed",
+              label: "L'animal est accepté dans les parties communes",
               value: "access_to_common_areas_allowed",
             },
             {
-              label: "short_leash_mandatory",
+              label: "Laisse courte obligatoire",
               value: "short_leash_mandatory",
             },
-            { label: "muzzle_mandatory", value: "muzzle_mandatory" },
             {
-              label: "up_to_date_health_record_mandatory",
+              label: "Muselière obligatoire",
+              value: "muzzle_mandatory",
+            },
+            {
+              label: "Carnet de santé à jour obligatoire",
               value: "up_to_date_health_record_mandatory",
             },
             {
-              label: "must_stay_in_the_yard",
+              label: "L'animal doit rester dans la cour / le jardin",
               value: "must_stay_in_the_yard",
             },
             {
-              label: "must_remain_in_a_cage",
+              label: "L'animal doit rester en cage",
               value: "must_remain_in_a_cage",
             },
             {
-              label: "dewormed_mandatory",
+              label: "L'animal doit être vermifugé",
               value: "dewormed_mandatory",
             },
             {
-              label: "identified_mandatory",
+              label: "L'animal doit être identifié",
               value: "identified_mandatory",
             },
             {
-              label: "up_to_date_vaccinations_mandatory",
+              label: "Les vaccinations doit être à jour",
               value: "up_to_date_vaccinations_mandatory",
             },
             {
-              label: "treated_against_fleas_and_ticks_mandatory",
+              label:
+                "L'animal doit être traité contre les puces et les tiques",
               value: "treated_against_fleas_and_ticks_mandatory",
             },
             {
-              label: "can_sleep_with_human",
+              label: "L'animal peut dormir avec son humain",
               value: "can_sleep_with_human",
             },
-            { label: "big_dogs_allowed", value: "big_dogs_allowed" },
             {
-              label: "pet_type_accepted",
+              label: "Les chiens de grandes tailles sont acceptés",
+              value: "big_dogs_allowed",
+            },
+            {
+              label: "Type de chiens acceptés",
               value: "pet_type_accepted",
             },
             {
-              label: "additional_information",
+              label:
+                "Autres conditions d'accès spécifiques pour les animaux",
               value: "additional_information",
             },
           ],
@@ -331,28 +348,28 @@ const Structures: CollectionConfig = {
           maxRows: 1,
           fields: [
             {
-              name: "Doctor",
+              name: "doctor",
               label: "Médecin",
               type: "array",
               fields: buildServicesField,
               maxRows: 1,
             },
             {
-              name: "Nurse",
+              name: "nurse",
               label: "Infirmier(e)",
               type: "array",
               fields: buildServicesField,
               maxRows: 1,
             },
             {
-              name: "Psychologist",
+              name: "psychologist",
               label: "Psychologue",
               type: "array",
               fields: buildServicesField,
               maxRows: 1,
             },
             {
-              name: "Social_Services",
+              name: "social_services",
               label: "Services sociaux",
               type: "array",
               fields: buildServicesField,
@@ -361,33 +378,34 @@ const Structures: CollectionConfig = {
           ],
         },
         {
-          name: "Commodities",
+          name: "commodities",
+          label: "Commodités",
           type: "array",
           maxRows: 1,
           fields: [
             {
-              name: "WC",
+              name: "wc",
               maxRows: 1,
               type: "array",
               label: "Toilettes",
               fields: buildServicesField,
             },
             {
-              name: "Douches",
+              name: "shower",
               maxRows: 1,
               type: "array",
               label: "Douches",
               fields: buildServicesField,
             },
             {
-              name: "Laveries",
+              name: "laveries",
               maxRows: 1,
               type: "array",
               label: "Laveries",
               fields: buildServicesField,
             },
             {
-              name: "Bagagerie",
+              name: "bagagerie",
               maxRows: 1,
               type: "array",
               label: "Bagagerie",
@@ -401,7 +419,7 @@ const Structures: CollectionConfig = {
               fields: buildServicesField,
             },
             {
-              name: "Vestiaire",
+              name: "vestiaire",
               maxRows: 1,
               type: "array",
               label: "Vestiaire",
@@ -445,7 +463,7 @@ const Structures: CollectionConfig = {
           ],
         },
         {
-          name: "Food",
+          name: "food",
           label: "Alimentation",
           type: "array",
           maxRows: 1,

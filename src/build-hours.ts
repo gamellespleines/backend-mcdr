@@ -2,29 +2,192 @@ import { Field } from "payload/types";
 
 export const buildHoursField: Field[] = [
   {
-    name: "day",
-    label: "Jour",
-    type: "select",
-    options: [
-      { label: "Lundi", value: "monday" },
-      { label: "Mardi", value: "tuesday" },
-      { label: "Mercredi", value: "wednesday" },
-      { label: "Jeudi", value: "thursday" },
-      { label: "Vendredi", value: "friday" },
-      { label: "Samedi", value: "saturday" },
-      { label: "Dimanche", value: "sunday" },
+    name: "monday",
+    type: "group",
+    label: "Lundi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
     ],
   },
   {
-    name: "isOpen",
-    type: "checkbox",
+    name: "tuesday",
+    type: "group",
+    label: "Mardi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
   },
   {
-    name: "start_hour",
-    type: "number",
+    name: "wednesday",
+    type: "group",
+    label: "Mercredi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
   },
   {
-    name: "end_hour",
-    type: "number",
+    name: "thursday",
+    type: "group",
+    label: "Jeudi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
+  },
+  {
+    name: "friday",
+    type: "group",
+    label: "Vendredi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
+  },
+  {
+    name: "saturday",
+    type: "group",
+    label: "Samedi",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
+  },
+  {
+    name: "sunday",
+    type: "group",
+    label: "Dimanche",
+    fields: [
+      {
+        name: "start_hour_am",
+        type: "number",
+        label: "Heure d'ouverture (matin)",
+      },
+      {
+        name: "end_hour_am",
+        type: "number",
+        label: "Heure de fermeture (matin)",
+      },
+      {
+        name: "start_hour_pm",
+        type: "number",
+        label: "Heure d'ouverture (après-midi)",
+      },
+      {
+        name: "end_hour_pm",
+        type: "number",
+        label: "Heure de fermeture (après-midi)",
+      },
+    ],
   },
 ];
