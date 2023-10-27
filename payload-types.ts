@@ -97,7 +97,6 @@ export interface Structure {
   people_access_conditions?: {
     conditions?: (
       | 'adapted_when_psychological_problems'
-      | 'on_application'
       | 'on_means_tested'
       | 'by_appointment_only'
       | 'free_access'
@@ -139,7 +138,7 @@ export interface Structure {
     additional_information?: string;
   };
   human_services?: {
-    Health?: {
+    health?: {
       doctor?: {
         available?: boolean;
         additional_info?: string;
@@ -187,8 +186,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       nurse?: {
         available?: boolean;
         additional_info?: string;
@@ -236,8 +234,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       psychologist?: {
         available?: boolean;
         additional_info?: string;
@@ -285,8 +282,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       social_services?: {
         available?: boolean;
         additional_info?: string;
@@ -334,10 +330,8 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
+      };
+    };
     commodities?: {
       wc?: {
         available?: boolean;
@@ -386,8 +380,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       shower?: {
         available?: boolean;
         additional_info?: string;
@@ -435,8 +428,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       laveries?: {
         available?: boolean;
         additional_info?: string;
@@ -484,8 +476,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       bagagerie?: {
         available?: boolean;
         additional_info?: string;
@@ -533,8 +524,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       loading_battery?: {
         available?: boolean;
         additional_info?: string;
@@ -582,8 +572,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       vestiaire?: {
         available?: boolean;
         additional_info?: string;
@@ -631,11 +620,9 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
-    hosting?: {
+      };
+    };
+    housing?: {
       solo?: {
         available?: boolean;
         additional_info?: string;
@@ -683,8 +670,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       with_pets?: {
         available?: boolean;
         additional_info?: string;
@@ -732,8 +718,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       couple?: {
         available?: boolean;
         additional_info?: string;
@@ -781,8 +766,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       family?: {
         available?: boolean;
         additional_info?: string;
@@ -830,10 +814,8 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
+      };
+    };
     food?: {
       alimentary_help?: {
         available?: boolean;
@@ -882,8 +864,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       restaurant_snack?: {
         available?: boolean;
         additional_info?: string;
@@ -931,10 +912,8 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
+      };
+    };
     other_services?: {
       traineeship?: {
         available?: boolean;
@@ -983,8 +962,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       formation?: {
         available?: boolean;
         additional_info?: string;
@@ -1032,14 +1010,11 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
-    id?: string;
-  }[];
+      };
+    };
+  };
   pets_services?: {
-    Health?: {
+    health?: {
       vet?: {
         available?: boolean;
         additional_info?: string;
@@ -1087,8 +1062,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       surgery?: {
         available?: boolean;
         additional_info?: string;
@@ -1136,8 +1110,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       dental_care?: {
         available?: boolean;
         additional_info?: string;
@@ -1185,8 +1158,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       parasytic_treatment?: {
         available?: boolean;
         additional_info?: string;
@@ -1234,8 +1206,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       vaccination?: {
         available?: boolean;
         additional_info?: string;
@@ -1283,8 +1254,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       food?: {
         available?: boolean;
         additional_info?: string;
@@ -1332,11 +1302,57 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
+      };
+    };
     keeping?: {
+      foster_family?: {
+        available?: boolean;
+        additional_info?: string;
+        opening_hours?: {
+          monday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          tuesday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          wednesday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          thursday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          friday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          saturday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+          sunday?: {
+            start_hour_am?: number;
+            end_hour_am?: number;
+            start_hour_pm?: number;
+            end_hour_pm?: number;
+          };
+        };
+      };
       kennel?: {
         available?: boolean;
         additional_info?: string;
@@ -1384,59 +1400,8 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      family?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
+      };
+    };
     other_services?: {
       identity?: {
         available?: boolean;
@@ -1485,8 +1450,7 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
+      };
       behaviour?: {
         available?: boolean;
         additional_info?: string;
@@ -1534,12 +1498,9 @@ export interface Structure {
             end_hour_pm?: number;
           };
         };
-        id?: string;
-      }[];
-      id?: string;
-    }[];
-    id?: string;
-  }[];
+      };
+    };
+  };
   picture?: {
     image: string | Media;
     picture_description?: string;
