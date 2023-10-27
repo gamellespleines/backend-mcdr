@@ -8,32 +8,29 @@ const Users: CollectionConfig = {
   },
   access: {
     create: ({ req: { user, collection } }) => {
-      // if (!user) return false;
-      // if (collection.config.slug === "users") {
-      //   return user.admin;
-      // } else {
-      //   return true;
-      // }
-      return true;
+      if (!user) return false;
+      if (collection.config.slug === "users") {
+        return user.admin;
+      } else {
+        return true;
+      }
     },
     read: () => true,
     update: ({ req: { user, collection } }) => {
-      // if (!user) return false;
-      // if (collection.config.slug === "users") {
-      //   return user.admin;
-      // } else {
-      //   return true;
-      // }
-      return true;
+      if (!user) return false;
+      if (collection.config.slug === "users") {
+        return user.admin;
+      } else {
+        return true;
+      }
     },
     delete: ({ req: { user, collection } }) => {
-      // if (!user) return false;
-      // if (collection.config.slug === "users") {
-      //   return user.admin;
-      // } else {
-      //   return true;
-      // }
-      return true;
+      if (!user) return false;
+      if (collection.config.slug === "users") {
+        return user.admin;
+      } else {
+        return true;
+      }
     },
   },
   fields: [
