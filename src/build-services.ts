@@ -4,11 +4,12 @@ import { buildHoursField } from "./build-hours";
 export const buildServicesField: Field[] = [
   {
     name: "available",
+    label: "Disponible",
     type: "checkbox",
   },
   {
     name: "additional_info",
-    label: "Additional info",
+    label: "Informations complémentaires",
     type: "textarea",
   },
   {
