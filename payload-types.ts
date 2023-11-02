@@ -18,6 +18,7 @@ export interface Config {
 }
 export interface User {
   id: string;
+  admin?: boolean;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -32,7 +33,21 @@ export interface User {
 export interface Structure {
   id: string;
   name?: string;
-  structure_type?: ('csapa' | 'caarud' | 'chs' | 'chu' | 'chrs' | 'ccas' | 'am' | 'ah' | 'other')[];
+  structure_type?: (
+    | 'csapa'
+    | 'caarud'
+    | 'chs'
+    | 'chu'
+    | 'chrs'
+    | 'ccas'
+    | 'am'
+    | 'vet'
+    | 'dispensaire'
+    | 'pension'
+    | 'day_care'
+    | 'solidarity'
+    | 'other'
+  )[];
   day_night_care?: 'day_night_care' | 'day_care' | 'night_care';
   opening_days?: {
     monday?: {
@@ -94,27 +109,25 @@ export interface Structure {
   additional_info?: string;
   capacity_pets?: number;
   capacity_humans?: number;
+  supported_bardot?: boolean;
+  supported_gp?: boolean;
   people_access_conditions?: {
-    conditions?: (
-      | 'adapted_when_psychological_problems'
-      | 'on_means_tested'
-      | 'by_appointment_only'
+    adapted_when_psychological_problems?: boolean;
+    adapted_for_reduce_mobility?: boolean;
+    adapted_when_illness_and_infections?: boolean;
+    access_type?: (
       | 'free_access'
-      | 'participation_requested_for_hosting'
-      | 'participation_requested_for_care'
-      | 'presence_of_children'
-      | 'unaccompanied_minors_accepted'
-      | 'couples_accepted'
-      | 'adapted_for_reduced_mobility'
-      | 'adapted_when_illnesses_and_infections'
-      | 'identity_document_mandatory'
-      | 'proof_of_income_mandatory'
+      | 'financial_participation_required'
+      | 'id_card_mandatory'
+      | 'income_condition'
+      | 'orientation_required'
+      | 'social_worker_orientation_required'
+      | 'veterinary_orientation_required'
+      | 'appointment_only'
     )[];
-    referral_needed?: ('no' | '115' | 'siao' | 'social_samu' | 'vet')[];
-    additional_information?: string;
-    max_pets_number_per_person?: number;
-    age_restriction_min?: number;
-    age_restriction_max?: number;
+    additional_specific_condition?: string;
+    max_pets_per_person?: '1' | '2' | '3' | 'unlimited';
+    public_type?: ('adults' | 'minors' | 'men_only' | 'women_only' | 'couple_without_children' | 'family')[];
   };
   pets_access_conditions?: {
     conditions?: (
@@ -125,891 +138,86 @@ export interface Structure {
       | 'up_to_date_health_record_mandatory'
       | 'must_stay_in_the_yard'
       | 'must_remain_in_a_cage'
-      | 'dewormed_mandatory'
+      | 'mandatory_pest_control_treatment'
       | 'identified_mandatory'
-      | 'up_to_date_vaccinations_mandatory'
-      | 'treated_against_fleas_and_ticks_mandatory'
+      | 'category_dogs_denied'
       | 'can_sleep_with_human'
-      | 'big_dogs_allowed'
-      | 'pet_type_accepted'
-      | 'additional_information'
+      | 'additional_specific_condition'
     )[];
-    pet_type_accepted?: 'all' | 'dogs' | 'cats' | 'dogs_and_cats';
-    additional_information?: string;
+    pet_type_accepted?: ('all' | 'dogs' | 'cats' | 'small_dogs' | 'nac')[];
+    additional_specific_condition?: string;
   };
   human_services?: {
     health?: {
       doctor?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       nurse?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       psychologist?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       social_services?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
+      };
+      addiction?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      hot_drinks?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      food?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      food_distribution?: {
+        available?: boolean;
+        additional_info?: string;
       };
     };
     commodities?: {
-      wc?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
       shower?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       laveries?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       bagagerie?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       loading_battery?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
+      };
+      wifi?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      resting_space?: {
+        available?: boolean;
+        additional_info?: string;
       };
       vestiaire?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
-    };
-    housing?: {
-      solo?: {
+      administrative_help?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
-      with_pets?: {
+      other?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-      couple?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-      family?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-    };
-    food?: {
-      alimentary_help?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-      restaurant_snack?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-    };
-    other_services?: {
-      traineeship?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-      formation?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
     };
   };
@@ -1018,486 +226,62 @@ export interface Structure {
       vet?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
+      };
+      vet_consultation?: {
+        available?: boolean;
+        additional_info?: string;
       };
       surgery?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
+      };
+      identification?: {
+        available?: boolean;
+        additional_info?: string;
       };
       dental_care?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       parasytic_treatment?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       vaccination?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
-      };
-      food?: {
-        available?: boolean;
-        additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
     };
     keeping?: {
       foster_family?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
       kennel?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
     };
-    other_services?: {
-      identity?: {
+    feeding?: {
+      behavior_help?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
       };
-      behaviour?: {
+      equipment_distribution?: {
         available?: boolean;
         additional_info?: string;
-        opening_hours?: {
-          monday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          tuesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          wednesday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          thursday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          friday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          saturday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-          sunday?: {
-            start_hour_am?: number;
-            end_hour_am?: number;
-            start_hour_pm?: number;
-            end_hour_pm?: number;
-          };
-        };
+      };
+      wellness_workshop?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      animations?: {
+        available?: boolean;
+        additional_info?: string;
+      };
+      grooming?: {
+        available?: boolean;
+        additional_info?: string;
       };
     };
   };
