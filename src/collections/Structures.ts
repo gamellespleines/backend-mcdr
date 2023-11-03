@@ -173,25 +173,40 @@ const Structures: CollectionConfig = {
       label: "Conditions d'accueil des personnes",
       fields: [
         {
-          name: "adapted_when_psychological_problems",
-          label:
-            "Adapté au personnes atteintes de problèmes psychologiques",
-          type: "checkbox",
-        },
-        {
-          name: "adapted_for_reduce_mobility",
-          label: "Adapté aux personnes à mobilité réduite",
-          type: "checkbox",
-        },
-        {
-          name: "adapted_when_illness_and_infections",
-          label:
-            "Adapté aux personnes en situation de maladie / infections graves et invalidantes",
-          type: "checkbox",
+          name: "public_type",
+          label: "Public accepté",
+          type: "select",
+          hasMany: true,
+          options: [
+            {
+              label: "Personnes majeures",
+              value: "adults",
+            },
+            {
+              label: "Personnes mineures",
+              value: "minors",
+            },
+            {
+              label: "Hommes seuls",
+              value: "men_only",
+            },
+            {
+              label: "Femmes seules",
+              value: "women_only",
+            },
+            {
+              label: "Couple sans enfant",
+              value: "couple_without_children",
+            },
+            {
+              label: "Famille",
+              value: "family",
+            },
+          ],
         },
         {
           name: "access_type",
-          label: "Prérequis pour venir",
+          label: "Conditions d'accès",
           type: "select",
           hasMany: true,
           options: [
@@ -256,38 +271,6 @@ const Structures: CollectionConfig = {
             {
               label: "Sans limite",
               value: "unlimited",
-            },
-          ],
-        },
-        {
-          name: "public_type",
-          label: "Public accepté",
-          type: "select",
-          hasMany: true,
-          options: [
-            {
-              label: "Personnes majeures",
-              value: "adults",
-            },
-            {
-              label: "Personnes mineures",
-              value: "minors",
-            },
-            {
-              label: "Hommes seuls",
-              value: "men_only",
-            },
-            {
-              label: "Femmes seules",
-              value: "women_only",
-            },
-            {
-              label: "Couple sans enfant",
-              value: "couple_without_children",
-            },
-            {
-              label: "Famille",
-              value: "family",
             },
           ],
         },
@@ -559,12 +542,6 @@ const Structures: CollectionConfig = {
                   fields: buildServicesField,
                 },
                 {
-                  label: "Détartrage dentaire",
-                  name: "dental_care",
-                  type: "group",
-                  fields: buildServicesField,
-                },
-                {
                   label: "Traitement contre les parasites",
                   name: "parasytic_treatment",
                   type: "group",
@@ -621,7 +598,7 @@ const Structures: CollectionConfig = {
               type: "group",
               fields: [
                 {
-                  label: "Distribution alimentaire sur place",
+                  label: "Distribution alimentaire",
                   name: "food_distribution",
                   type: "group",
                   fields: buildServicesField,
