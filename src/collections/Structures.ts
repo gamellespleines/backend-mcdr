@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { buildServicesField } from "../build-services";
 import { buildHoursField } from "../build-hours";
+import { Location } from "../ui/location";
 
 // Example Collection - For reference only, this must be added to payload.config.ts to be used.
 const Structures: CollectionConfig = {
@@ -121,9 +122,25 @@ const Structures: CollectionConfig = {
       type: "text",
     },
     {
-      name: "location",
-      type: "point",
-      label: "Location",
+      name: "Localisation",
+      label: "Localisation",
+      type: "group",
+      fields: [
+        {
+          name: "information",
+          type: "ui",
+          admin: {
+            components: {
+              Field: Location,
+            },
+          },
+        },
+        {
+          name: "location",
+          type: "point",
+          label: "Location",
+        },
+      ],
     },
     {
       name: "additional_info",

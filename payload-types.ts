@@ -101,11 +101,13 @@ export interface Structure {
   city?: string;
   country?: string;
   postal_code?: string;
-  /**
-   * @minItems 2
-   * @maxItems 2
-   */
-  location?: [number, number];
+  Localisation?: {
+    /**
+     * @minItems 2
+     * @maxItems 2
+     */
+    location?: [number, number];
+  };
   additional_info?: string;
   capacity_pets?: number;
   capacity_humans?: number;

@@ -11,6 +11,10 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
+  localization: {
+    locales: ["fr"],
+    defaultLocale: "fr",
+  },
   collections: [Users, Structures, Media],
   db: mongooseAdapter({
     url: process.env.MONGODB_URI,
