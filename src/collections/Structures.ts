@@ -186,7 +186,7 @@ const Structures: CollectionConfig = {
         {
           name: "adapted_when_illness_and_infections",
           label:
-            "Centre adapté aux personnes en situation de maladie / infections graves et invalidantes",
+            "Adapté aux personnes en situation de maladie / infections graves et invalidantes",
           type: "checkbox",
         },
         {
