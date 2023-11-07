@@ -114,9 +114,7 @@ export interface Structure {
   supported_bardot?: boolean;
   supported_gp?: boolean;
   people_access_conditions?: {
-    adapted_when_psychological_problems?: boolean;
-    adapted_for_reduce_mobility?: boolean;
-    adapted_when_illness_and_infections?: boolean;
+    public_type?: ('adults' | 'minors' | 'men_only' | 'women_only' | 'couple_without_children' | 'family')[];
     access_type?: (
       | 'free_access'
       | 'financial_participation_required'
@@ -129,7 +127,6 @@ export interface Structure {
     )[];
     additional_specific_condition?: string;
     max_pets_per_person?: '1' | '2' | '3' | 'unlimited';
-    public_type?: ('adults' | 'minors' | 'men_only' | 'women_only' | 'couple_without_children' | 'family')[];
   };
   pets_access_conditions?: {
     conditions?: (
@@ -238,10 +235,6 @@ export interface Structure {
         additional_info?: string;
       };
       identification?: {
-        available?: boolean;
-        additional_info?: string;
-      };
-      dental_care?: {
         available?: boolean;
         additional_info?: string;
       };

@@ -10,6 +10,7 @@ export default buildConfig({
   admin: {
     bundler: webpackBundler(),
   },
+  serverURL: "https://backend.moncompagnonderoute.fr",
   editor: slateEditor({}),
   localization: {
     locales: ["fr"],
