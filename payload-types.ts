@@ -59,40 +59,40 @@ export interface Structure {
       end_hour_pm?: string | null;
     };
     tuesday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     wednesday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     thursday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     friday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     saturday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     sunday?: {
-      start_hour_am?: number | null;
-      end_hour_am?: number | null;
-      start_hour_pm?: number | null;
-      end_hour_pm?: number | null;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
   };
   description?: string | null;

@@ -35,22 +35,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
@@ -62,22 +62,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
@@ -89,22 +89,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
@@ -116,22 +116,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
@@ -143,22 +143,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
@@ -170,22 +170,22 @@ export const buildHoursField: Field[] = [
     fields: [
       {
         name: "start_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (matin)",
       },
       {
         name: "end_hour_am",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (matin)",
       },
       {
         name: "start_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure d'ouverture (après-midi)",
       },
       {
         name: "end_hour_pm",
-        type: "number",
+        type: "text",
         label: "Heure de fermeture (après-midi)",
       },
     ],
