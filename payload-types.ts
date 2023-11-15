@@ -18,312 +18,320 @@ export interface Config {
 }
 export interface User {
   id: string;
-  admin?: boolean;
+  admin?: boolean | null;
   updatedAt: string;
   createdAt: string;
   email: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  salt?: string;
-  hash?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  password: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password: string | null;
 }
 export interface Structure {
   id: string;
-  name?: string;
-  structure_type?: (
-    | 'csapa'
-    | 'caarud'
-    | 'chs'
-    | 'chu'
-    | 'chrs'
-    | 'ccas'
-    | 'am'
-    | 'vet'
-    | 'dispensaire'
-    | 'pension'
-    | 'day_care'
-    | 'solidarity'
-    | 'other'
-  )[];
-  day_night_care?: 'day_night_care' | 'day_care' | 'night_care';
+  name?: string | null;
+  structure_type?:
+    | (
+        | 'csapa'
+        | 'caarud'
+        | 'chs'
+        | 'chu'
+        | 'chrs'
+        | 'ccas'
+        | 'am'
+        | 'vet'
+        | 'dispensaire'
+        | 'pension'
+        | 'day_care'
+        | 'solidarity'
+        | 'other'
+      )[]
+    | null;
+  day_night_care?: ('day_night_care' | 'day_care' | 'night_care') | null;
   opening_days?: {
     monday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: string | null;
+      end_hour_am?: string | null;
+      start_hour_pm?: string | null;
+      end_hour_pm?: string | null;
     };
     tuesday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
     wednesday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
     thursday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
     friday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
     saturday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
     sunday?: {
-      start_hour_am?: number;
-      end_hour_am?: number;
-      start_hour_pm?: number;
-      end_hour_pm?: number;
+      start_hour_am?: number | null;
+      end_hour_am?: number | null;
+      start_hour_pm?: number | null;
+      end_hour_pm?: number | null;
     };
   };
-  description?: string;
-  contact_phone?: string;
-  contact_email?: string;
-  website?: string;
-  address?: string;
-  city?: string;
-  country?: string;
-  postal_code?: string;
+  description?: string | null;
+  contact_phone?: string | null;
+  contact_email?: string | null;
+  website?: string | null;
+  address?: string | null;
+  city?: string | null;
+  country?: string | null;
+  postal_code?: string | null;
   Localisation?: {
     /**
      * @minItems 2
      * @maxItems 2
      */
-    location?: [number, number];
+    location?: [number, number] | null;
   };
-  additional_info?: string;
-  capacity_pets?: number;
-  capacity_humans?: number;
-  supported_bardot?: boolean;
-  supported_gp?: boolean;
+  additional_info?: string | null;
+  capacity_pets?: number | null;
+  capacity_humans?: number | null;
+  supported_bardot?: boolean | null;
+  supported_gp?: boolean | null;
   people_access_conditions?: {
-    public_type?: ('adults' | 'minors' | 'men_only' | 'women_only' | 'couple_without_children' | 'family')[];
-    access_type?: (
-      | 'free_access'
-      | 'financial_participation_required'
-      | 'id_card_mandatory'
-      | 'income_condition'
-      | 'orientation_required'
-      | 'social_worker_orientation_required'
-      | 'veterinary_orientation_required'
-      | 'appointment_only'
-    )[];
-    additional_specific_condition?: string;
-    max_pets_per_person?: '1' | '2' | '3' | 'unlimited';
+    public_type?: ('adults' | 'minors' | 'men_only' | 'women_only' | 'couple_without_children' | 'family')[] | null;
+    access_type?:
+      | (
+          | 'free_access'
+          | 'financial_participation_required'
+          | 'id_card_mandatory'
+          | 'income_condition'
+          | 'orientation_required'
+          | 'social_worker_orientation_required'
+          | 'veterinary_orientation_required'
+          | 'appointment_only'
+        )[]
+      | null;
+    additional_specific_condition?: string | null;
+    max_pets_per_person?: ('1' | '2' | '3' | 'unlimited') | null;
   };
   pets_access_conditions?: {
-    conditions?: (
-      | 'sterilized_mandatory'
-      | 'access_to_common_areas_allowed'
-      | 'short_leash_mandatory'
-      | 'muzzle_mandatory'
-      | 'up_to_date_health_record_mandatory'
-      | 'must_stay_in_the_yard'
-      | 'must_remain_in_a_cage'
-      | 'mandatory_pest_control_treatment'
-      | 'identified_mandatory'
-      | 'category_dogs_denied'
-      | 'can_sleep_with_human'
-      | 'additional_specific_condition'
-    )[];
-    pet_type_accepted?: ('all' | 'dogs' | 'cats' | 'small_dogs' | 'nac')[];
-    additional_specific_condition?: string;
+    conditions?:
+      | (
+          | 'sterilized_mandatory'
+          | 'access_to_common_areas_allowed'
+          | 'short_leash_mandatory'
+          | 'muzzle_mandatory'
+          | 'up_to_date_health_record_mandatory'
+          | 'must_stay_in_the_yard'
+          | 'must_remain_in_a_cage'
+          | 'mandatory_pest_control_treatment'
+          | 'identified_mandatory'
+          | 'category_dogs_denied'
+          | 'can_sleep_with_human'
+          | 'additional_specific_condition'
+        )[]
+      | null;
+    pet_type_accepted?: ('all' | 'dogs' | 'cats' | 'small_dogs' | 'nac')[] | null;
+    additional_specific_condition?: string | null;
   };
   human_services?: {
     health?: {
       doctor?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       nurse?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       psychologist?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       social_services?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       addiction?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       hot_drinks?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       food?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       food_distribution?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
     };
     commodities?: {
       shower?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       laveries?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       bagagerie?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       loading_battery?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       wifi?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       resting_space?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       vestiaire?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       administrative_help?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       other?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
     };
   };
   pets_services?: {
     health?: {
       vet?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       vet_consultation?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       surgery?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       identification?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       parasytic_treatment?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       vaccination?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
     };
     keeping?: {
       foster_family?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       kennel?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
     };
     feeding?: {
       behavior_help?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       equipment_distribution?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       wellness_workshop?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       animations?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
       grooming?: {
-        available?: boolean;
-        additional_info?: string;
+        available?: boolean | null;
+        additional_info?: string | null;
       };
     };
   };
-  picture?: {
-    image: string | Media;
-    picture_description?: string;
-    picture_name?: string;
-    id?: string;
-  }[];
+  picture?:
+    | {
+        image: string | Media;
+        picture_description?: string | null;
+        picture_name?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
 export interface Media {
   id: string;
-  alt?: string;
+  alt?: string | null;
   updatedAt: string;
   createdAt: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
   sizes?: {
     thumbnail?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
     };
     card?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
     };
     tablet?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
     };
   };
 }
@@ -333,7 +341,7 @@ export interface PayloadPreference {
     relationTo: 'users';
     value: string | User;
   };
-  key?: string;
+  key?: string | null;
   value?:
     | {
         [k: string]: unknown;
@@ -348,22 +356,13 @@ export interface PayloadPreference {
 }
 export interface PayloadMigration {
   id: string;
-  name?: string;
-  batch?: number;
+  name?: string | null;
+  batch?: number | null;
   updatedAt: string;
   createdAt: string;
 }
 
 
 declare module 'payload' {
-  export interface GeneratedTypes {
-    collections: {
-      'users': User
-      'structure': Structure
-      'media': Media
-      'payload-preferences': PayloadPreference
-      'payload-migrations': PayloadMigration
-    }
-
-  }
+  export interface GeneratedTypes extends Config {}
 }
