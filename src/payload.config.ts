@@ -1,5 +1,4 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { buildConfig } from "payload/config";
@@ -21,5 +20,4 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI,
   }),
-  plugins: [payloadCloud()],
 });
