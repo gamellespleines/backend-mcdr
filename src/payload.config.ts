@@ -1,5 +1,4 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-// import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { buildConfig } from "payload/config";
@@ -14,6 +13,7 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   cors: ["http://localhost:3000", "https://moncompagnonderoute.fr"],
+  serverURL: "https://backend.moncompagnonderoute.fr",
   editor: slateEditor({}),
   localization: {
     locales: ["fr"],
