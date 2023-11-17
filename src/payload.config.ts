@@ -1,5 +1,5 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { payloadCloud } from "@payloadcms/plugin-cloud";
+// import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { buildConfig } from "payload/config";
@@ -8,10 +8,11 @@ import Structures from "./collections/Structures";
 import { Media } from "./collections/Media";
 
 export default buildConfig({
-  plugins: [payloadCloud()],
+  // plugins: [payloadCloud()],
   admin: {
     bundler: webpackBundler(),
   },
+  cors: ["http://localhost:3000", "https://moncompagnonderoute.fr"],
   serverURL: "https://backend.moncompagnonderoute.fr",
   editor: slateEditor({}),
   localization: {
