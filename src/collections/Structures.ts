@@ -621,7 +621,7 @@ const Structures: CollectionConfig = {
           },
           fields: [
             {
-              name: "feeding",
+              name: "taking_care",
               label: "Sélectionnez les services disponibles",
               type: "group",
               fields: [
