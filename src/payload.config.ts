@@ -1,4 +1,5 @@
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { buildConfig } from "payload/config";
@@ -7,6 +8,7 @@ import Structures from "./collections/Structures";
 import { Media } from "./collections/Media";
 
 export default buildConfig({
+  plugins: [payloadCloud()],
   admin: {
     bundler: webpackBundler(),
   },
