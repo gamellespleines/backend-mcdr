@@ -509,6 +509,11 @@ const Structures: CollectionConfig = {
       type: "group",
       fields: [
         {
+          name: "health_available",
+          type: "checkbox",
+          label: "Ces types de services sont-ils disponible ?",
+        },
+        {
           label: "Services animal - Le soigner",
           type: "collapsible",
           fields: [
@@ -565,6 +570,11 @@ const Structures: CollectionConfig = {
           },
           fields: [
             {
+              name: "keeping_available",
+              type: "checkbox",
+              label: "Ces types de services sont-ils disponible ?",
+            },
+            {
               name: "keeping",
               label: "Sélectionnez les services de garde disponibles",
               type: "group",
@@ -593,6 +603,11 @@ const Structures: CollectionConfig = {
           },
           fields: [
             {
+              name: "feeding_available",
+              type: "checkbox",
+              label: "Ces types de services sont-ils disponible ?",
+            },
+            {
               name: "feeding",
               label: "Sélectionnez les services disponibles",
               type: "group",
@@ -620,6 +635,11 @@ const Structures: CollectionConfig = {
             initCollapsed: true,
           },
           fields: [
+            {
+              name: "taking_care_available",
+              type: "checkbox",
+              label: "Ces types de services sont-ils disponible ?",
+            },
             {
               name: "taking_care",
               label: "Sélectionnez les services disponibles",
