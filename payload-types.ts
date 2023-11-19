@@ -227,6 +227,7 @@ export interface Structure {
     };
   };
   pets_services?: {
+    health_available?: boolean | null;
     health?: {
       vet?: {
         available?: boolean | null;
@@ -253,6 +254,7 @@ export interface Structure {
         additional_info?: string | null;
       };
     };
+    keeping_available?: boolean | null;
     keeping?: {
       foster_family?: {
         available?: boolean | null;
@@ -263,7 +265,19 @@ export interface Structure {
         additional_info?: string | null;
       };
     };
+    feeding_available?: boolean | null;
     feeding?: {
+      food_distribution?: {
+        available?: boolean | null;
+        additional_info?: string | null;
+      };
+      bowls?: {
+        available?: boolean | null;
+        additional_info?: string | null;
+      };
+    };
+    taking_care_available?: boolean | null;
+    taking_care?: {
       behavior_help?: {
         available?: boolean | null;
         additional_info?: string | null;

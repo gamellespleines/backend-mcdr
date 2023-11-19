@@ -509,14 +509,14 @@ const Structures: CollectionConfig = {
       type: "group",
       fields: [
         {
-          name: "health_available",
-          type: "checkbox",
-          label: "Ces types de services sont-ils disponible ?",
-        },
-        {
           label: "Services animal - Le soigner",
           type: "collapsible",
           fields: [
+            {
+              name: "health_available",
+              type: "checkbox",
+              label: "Ces types de services sont-ils disponible ?",
+            },
             {
               name: "health",
               label: "Sélectionnez les services disponibles",
