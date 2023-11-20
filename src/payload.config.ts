@@ -8,12 +8,12 @@ import { Media } from "./collections/Media";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 
 export default buildConfig({
-  // plugins: [payloadCloud()],
+  plugins: [payloadCloud()],
   admin: {
     bundler: webpackBundler(),
   },
   cors: ["http://localhost:3000", "https://moncompagnonderoute.fr"],
-  // serverURL: "https://backend.moncompagnonderoute.fr",
+  serverURL: "https://backend.moncompagnonderoute.fr",
   editor: slateEditor({}),
   localization: {
     locales: ["fr"],
