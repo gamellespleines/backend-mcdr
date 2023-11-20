@@ -26,6 +26,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -47,6 +48,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -100,6 +102,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -121,6 +124,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -174,6 +178,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -195,6 +200,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -248,6 +254,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -269,6 +276,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -322,6 +330,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -343,6 +352,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -396,6 +406,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -417,6 +428,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -470,6 +482,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
@@ -491,6 +504,7 @@ export const buildHoursField: Field[] = [
             type: "date",
             admin: {
               date: {
+                timeFormat: "HH:mm",
                 pickerAppearance: "timeOnly",
               },
             },
