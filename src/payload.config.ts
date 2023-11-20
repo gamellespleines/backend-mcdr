@@ -8,7 +8,6 @@ import { Media } from "./collections/Media";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 
 export default buildConfig({
-  plugins: [payloadCloud()],
   admin: {
     bundler: webpackBundler(),
   },
