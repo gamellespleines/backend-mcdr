@@ -53,42 +53,70 @@ export interface Structure {
   day_night_care?: ('day_night_care' | 'day_care' | 'night_care') | null;
   opening_days?: {
     monday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     tuesday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     wednesday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     thursday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     friday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     saturday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;
       end_hour_pm?: string | null;
     };
     sunday?: {
+      start_am?: string | null;
+      end_am?: string | null;
+      start_pm?: string | null;
+      end_pm?: string | null;
       start_hour_am?: string | null;
       end_hour_am?: string | null;
       start_hour_pm?: string | null;

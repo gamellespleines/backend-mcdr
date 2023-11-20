@@ -7,6 +7,53 @@ export const buildHoursField: Field[] = [
     label: "Lundi",
     fields: [
       {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
+      {
         name: "start_hour_am",
         type: "text",
         label: "Heure d'ouverture (matin)",
@@ -33,6 +80,53 @@ export const buildHoursField: Field[] = [
     type: "group",
     label: "Mardi",
     fields: [
+      {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
       {
         name: "start_hour_am",
         type: "text",
@@ -61,6 +155,53 @@ export const buildHoursField: Field[] = [
     label: "Mercredi",
     fields: [
       {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
+      {
         name: "start_hour_am",
         type: "text",
         label: "Heure d'ouverture (matin)",
@@ -87,6 +228,53 @@ export const buildHoursField: Field[] = [
     type: "group",
     label: "Jeudi",
     fields: [
+      {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
       {
         name: "start_hour_am",
         type: "text",
@@ -115,6 +303,53 @@ export const buildHoursField: Field[] = [
     label: "Vendredi",
     fields: [
       {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
+      {
         name: "start_hour_am",
         type: "text",
         label: "Heure d'ouverture (matin)",
@@ -142,6 +377,53 @@ export const buildHoursField: Field[] = [
     label: "Samedi",
     fields: [
       {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
+      {
         name: "start_hour_am",
         type: "text",
         label: "Heure d'ouverture (matin)",
@@ -168,6 +450,53 @@ export const buildHoursField: Field[] = [
     type: "group",
     label: "Dimanche",
     fields: [
+      {
+        type: "row",
+        fields: [
+          {
+            name: "start_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_am",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "start_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                timeFormat: "HH:mm",
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+          {
+            name: "end_pm",
+            localized: true,
+            type: "date",
+            admin: {
+              date: {
+                pickerAppearance: "timeOnly",
+              },
+            },
+          },
+        ],
+      },
       {
         name: "start_hour_am",
         type: "text",
