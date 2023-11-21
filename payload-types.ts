@@ -156,73 +156,57 @@ export interface Structure {
     health?: {
       doctor?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       nurse?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       psychologist?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       social_services?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       addiction?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       hot_drinks?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       food?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       food_distribution?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
+    additional_info?: string | null;
     commodities?: {
       shower?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       laveries?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       bagagerie?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       loading_battery?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       wifi?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       resting_space?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       vestiaire?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       administrative_help?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       other?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
   };
@@ -231,72 +215,58 @@ export interface Structure {
     health?: {
       vet?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       vet_consultation?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       surgery?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       identification?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       parasytic_treatment?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       vaccination?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
+    additional_info?: string | null;
     keeping_available?: boolean | null;
     keeping?: {
       foster_family?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       kennel?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
     feeding_available?: boolean | null;
     feeding?: {
       food_distribution?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       bowls?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
     taking_care_available?: boolean | null;
     taking_care?: {
       behavior_help?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       equipment_distribution?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       wellness_workshop?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       animations?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
       grooming?: {
         available?: boolean | null;
-        additional_info?: string | null;
       };
     };
   };

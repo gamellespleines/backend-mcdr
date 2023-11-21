@@ -6,9 +6,4 @@ export const buildServicesField: Field[] = [
     label: "Disponible",
     type: "checkbox",
   },
-  {
-    name: "additional_info",
-    label: "Informations complémentaires",
-    type: "textarea",
-  },
 ];

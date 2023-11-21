@@ -429,6 +429,11 @@ const Structures: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
+            },
           ],
         },
         {
@@ -499,6 +504,11 @@ const Structures: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
+            },
           ],
         },
       ],
@@ -560,6 +570,11 @@ const Structures: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
+            },
           ],
         },
         {
@@ -593,6 +608,11 @@ const Structures: CollectionConfig = {
                 },
               ],
             },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
+            },
           ],
         },
         {
@@ -625,6 +645,11 @@ const Structures: CollectionConfig = {
                   fields: buildServicesField,
                 },
               ],
+            },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
             },
           ],
         },
@@ -677,6 +702,11 @@ const Structures: CollectionConfig = {
                   fields: buildServicesField,
                 },
               ],
+            },
+            {
+              name: "additional_info",
+              label: "Informations complémentaires",
+              type: "textarea",
             },
           ],
         },
