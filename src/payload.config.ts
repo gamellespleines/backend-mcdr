@@ -11,7 +11,11 @@ export default buildConfig({
   admin: {
     bundler: webpackBundler(),
   },
-  cors: ["http://localhost:3000", "https://moncompagnonderoute.fr"],
+  cors: [
+    "http://localhost:3000",
+    "https://moncompagnonderoute.fr",
+    "https://moncompagnonderouteo5ak1ojt-front-end.functions.fnc.fr-par.scw.cloud",
+  ],
   serverURL: "https://backend.moncompagnonderoute.fr",
   editor: slateEditor({}),
   localization: {
