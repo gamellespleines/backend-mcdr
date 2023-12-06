@@ -105,11 +105,13 @@ const Structures: CollectionConfig = {
       name: "address",
       label: "Adresse",
       type: "text",
+      required: true,
     },
     {
       name: "city",
       label: "Ville",
       type: "text",
+      required: true,
     },
     {
       name: "country",
@@ -120,6 +122,7 @@ const Structures: CollectionConfig = {
       name: "postal_code",
       label: "Code postal",
       type: "text",
+      required: true,
     },
     {
       name: "Localisation",
