@@ -99,16 +99,16 @@ export interface Structure {
   contact_phone?: string | null;
   contact_email?: string | null;
   website?: string | null;
-  address?: string | null;
-  city?: string | null;
+  address: string;
+  city: string;
   country?: string | null;
-  postal_code?: string | null;
-  Localisation?: {
+  postal_code: string;
+  Localisation: {
     /**
      * @minItems 2
      * @maxItems 2
      */
-    location?: [number, number] | null;
+    location: [number, number];
   };
   additional_info?: string | null;
   capacity_pets?: number | null;

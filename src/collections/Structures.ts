@@ -141,6 +141,7 @@ const Structures: CollectionConfig = {
         {
           name: "location",
           type: "point",
+          required: true,
           label: "Location",
         },
       ],
